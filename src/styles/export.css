@@ -1,0 +1,104 @@
+@import './design-system.css';
+
+/* Export Settings - Functional & Clear */
+.export-settings {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.setting-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.setting-group label {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.setting-group select {
+  padding: 6px 8px;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-medium);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-primary);
+  font-size: 12px;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.setting-group select:hover {
+  border-color: var(--color-border-strong);
+}
+
+.setting-group select:focus {
+  outline: none;
+  border-color: var(--color-accent-primary);
+}
+
+.export-info {
+  padding: var(--space-lg);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-sm);
+  margin-top: var(--space-sm);
+}
+
+.export-info p {
+  font-size: 11px;
+  color: var(--color-text-secondary);
+  margin: var(--space-sm) 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+}
+
+.export-info p:first-child {
+  margin-top: 0;
+}
+
+.export-info p:last-child {
+  margin-bottom: 0;
+}
+
+/* Export Progress - Status Output */
+.export-progress {
+  padding: var(--space-xl);
+  text-align: center;
+}
+
+.export-progress h3 {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-lg);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 4px;
+  background: var(--color-border-medium);
+  border-radius: 2px;
+  overflow: hidden;
+  margin: var(--space-md) 0;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--color-accent-primary);
+  transition: width 0.2s ease;
+  border-radius: 2px;
+}
+
+.progress-text {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  color: var(--color-text-secondary);
+  margin-top: var(--space-sm);
+}

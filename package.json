@@ -1,0 +1,27 @@
+{
+  "name": "design-prototype",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^7.2.4",
+    "vite-plugin-glsl": "^1.5.5"
+  },
+  "dependencies": {
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/sortable": "^10.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
+    "@ffmpeg/ffmpeg": "^0.12.15",
+    "@ffmpeg/util": "^0.12.2",
+    "@types/three": "^0.182.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "three": "^0.182.0",
+    "zustand": "^5.0.11"
+  }
+}

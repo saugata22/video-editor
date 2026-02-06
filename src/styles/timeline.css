@@ -1,0 +1,297 @@
+/* Timeline Container */
+.timeline-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.timeline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.timeline-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.zoom-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px;
+  background: var(--bg-tertiary);
+  border-radius: 4px;
+}
+
+.zoom-level {
+  font-size: 12px;
+  color: var(--text-secondary);
+  min-width: 60px;
+  text-align: center;
+}
+
+.zoom-controls button {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Timeline Content */
+.timeline-content {
+  position: relative;
+  flex: 1;
+  overflow-x: auto;
+  overflow-y: auto;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+}
+
+/* Timeline Ruler */
+.timeline-ruler {
+  position: sticky;
+  top: 0;
+  height: 30px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 10;
+  overflow: hidden;
+}
+
+.ruler-ticks {
+  position: relative;
+  height: 100%;
+  min-width: 100%;
+}
+
+.ruler-tick {
+  position: absolute;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background: var(--border-color);
+}
+
+.ruler-label {
+  position: absolute;
+  top: 2px;
+  left: 4px;
+  font-size: 10px;
+  color: var(--text-secondary);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Playhead */
+.playhead {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.playhead-handle {
+  position: absolute;
+  top: 0;
+  left: -6px;
+  width: 14px;
+  height: 14px;
+  background: var(--accent-primary);
+  border-radius: 2px;
+  cursor: ew-resize;
+  pointer-events: all;
+}
+
+.playhead-line {
+  position: absolute;
+  top: 14px;
+  left: 0;
+  width: 2px;
+  bottom: 0;
+  background: var(--accent-primary);
+  pointer-events: none;
+}
+
+/* Tracks */
+.tracks-container {
+  position: relative;
+  min-height: 120px;
+  padding: 8px 0;
+}
+
+.track {
+  display: flex;
+  height: 80px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.track-header {
+  width: 150px;
+  padding: 8px 12px;
+  background: var(--bg-secondary);
+  border-right: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.track-name {
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.track-content {
+  position: relative;
+  flex: 1;
+  background: var(--bg-primary);
+}
+
+.track-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--text-hint);
+  font-size: 12px;
+}
+
+/* Clips */
+.clip {
+  position: absolute;
+  top: 10px;
+  height: 60px;
+  background: var(--bg-tertiary);
+  border: 2px solid var(--border-color);
+  border-radius: 4px;
+  cursor: move;
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.clip:hover {
+  border-color: var(--accent-primary);
+}
+
+.clip.selected {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.3);
+}
+
+.clip.dragging {
+  opacity: 0.7;
+  z-index: 10;
+}
+
+.clip-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 8px;
+  flex: 1;
+  overflow: hidden;
+}
+
+.clip-thumbnail {
+  width: 80px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.clip-name {
+  font-size: 12px;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Clip Resize Handles */
+.clip-resize-handle {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 8px;
+  background: transparent;
+  cursor: ew-resize;
+  z-index: 5;
+  transition: background 0.2s ease;
+}
+
+.clip-resize-handle.left {
+  left: 0;
+}
+
+.clip-resize-handle.right {
+  right: 0;
+}
+
+.clip:hover .clip-resize-handle {
+  background: rgba(14, 165, 233, 0.3);
+}
+
+.clip-resize-handle:hover {
+  background: rgba(14, 165, 233, 0.5) !important;
+}
+
+/* Clip Actions */
+.clip-actions {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  display: flex;
+  gap: 4px;
+  z-index: 10;
+}
+
+.clip-actions button {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  font-size: 12px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clip-actions button:hover {
+  background: var(--bg-hover);
+  border-color: var(--accent-primary);
+}
+
+/* Scrollbar Styling */
+.timeline-content::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+.timeline-content::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+.timeline-content::-webkit-scrollbar-thumb {
+  background: var(--bg-tertiary);
+  border-radius: 6px;
+  border: 2px solid var(--bg-secondary);
+}
+
+.timeline-content::-webkit-scrollbar-thumb:hover {
+  background: var(--bg-hover);
+}
